@@ -4,6 +4,18 @@
 _start:
     movb %dl, bootDisk
 
+    # clear screen
+    movw $0x184F, %dx
+    xor  %cx, %cx
+    movb  $0x07, %bh
+    movw  $0x0700, %ax
+    int  $0x10
+
+    # hide cursor
+    movb $32, %ch
+    movb $1, %ah
+    int $0x10
+
     read_kernel:    #load kernel from disk
         movb $2, %ah
         movb sectors_to_load, %al
