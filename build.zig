@@ -1,7 +1,7 @@
 const std = @import("std");
 
 pub fn build(b: *std.Build) void {
-    const kernel_target = b.standardTargetOptions(.{ .default_target = .{ .os_tag = .freestanding, .cpu_arch = .x86_64 } });
+    const kernel_target = b.standardTargetOptions(.{ .default_target = .{ .os_tag = .freestanding, .cpu_arch = .x86 } });
 
     const exe_mod = b.createModule(.{
         .root_source_file = b.path("src/main.zig"),
